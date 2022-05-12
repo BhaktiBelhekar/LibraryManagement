@@ -1,0 +1,90 @@
+﻿@model IEnumerable<LibraryManagement.Models.StudentDetails>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    body {
+        background-image: url("https://media.istockphoto.com/photos/ivory-off-white-paper-texture-picture-id903280608?k=20&m=903280608&s=170667a&w=0&h=yxLk_ymR4bWfgAxi774CWiLAkIt2SZD315VFBiGmRzo=");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+</style>
+
+
+<p>
+    <a class=" btn btn-success" asp-action="Create">Add Student</a>
+</p>
+@if (TempData["AlertMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+        <strong>Success!!</strong> @TempData["AlertMessage"].ToString();
+
+    </div>
+}
+@if (TempData["msg"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+        <strong>Failed!!</strong> @TempData["AlertMessage"].ToString();
+
+    </div>
+}
+<table class="table">
+    <thead style="background-color:tan;">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Student_Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Department)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Student_Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Department)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmailID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+
+
+                <td>
+                    <a class=" btn btn-primary" asp-action="Edit" asp-route-id="@item.Student_Id"> <i class="bi bi-pencil-square"></i>Edit</a> |
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Student_Id"><i class=" bi bi-eye"></i>Details</a> |
+                    <a class="btn btn-danger text-white" asp-action="Delete" asp-route-id="@item.Student_Id"><i class="bi bi-trash"></i>Delete</a>
+                </td>
+
+                <div style="position:fixed;left:30px;bottom:40px;" class="text-white">
+                    <input type="button" style="background-color:green; border-color:black; border-radius:20px; color:white;height:40px;width:70px; font-size:15px " onclick="location.href = '/Button/Index';" value="Back" /><br><br>
+
+                </div>
+            </tr>
+        }
+    </tbody>
+</table>

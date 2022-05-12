@@ -1,0 +1,91 @@
+﻿@model IEnumerable<LibraryManagement.Models.AddBooks>
+
+@{
+    ViewData["Title"] = "Filter";
+}
+<style>
+    body {
+        background-image: url("https://media.istockphoto.com/photos/ivory-off-white-paper-texture-picture-id903280608?k=20&m=903280608&s=170667a&w=0&h=yxLk_ymR4bWfgAxi774CWiLAkIt2SZD315VFBiGmRzo=");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+</style>
+
+@if (TempData["AlertMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+        <strong>Success!!</strong> @TempData["AlertMessage"].ToString();
+
+    </div>
+}
+
+
+
+<table class="table">
+    <thead style="background-color:tan">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BookName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Publication)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AvailableQuantity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookCategory)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Publication)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AvailableQuantity)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.BookNo">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.BookNo">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.BookNo">Delete</a>
+                </td>
+            </tr>
+
+        }
+        <div style="position:fixed;left:30px;bottom:40px;" class="text-white">
+            <input type="button" style="background-color:green; border-color:black; color:white;height:37px;width:70px; font-size:15px;border-radius:20px" onclick="location.href = '/Search/Index';" value="Back" /><br><br>
+
+        </div>
+    </tbody>
+</table>

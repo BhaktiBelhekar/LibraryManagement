@@ -1,0 +1,67 @@
+﻿@{ 
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <meta name="viewport" content="width=device-width" />
+    <title>Get Book Details</title>
+
+</head>
+<style>
+    body {
+        background-image: url("https://media.istockphoto.com/photos/ivory-off-white-paper-texture-picture-id903280608?k=20&m=903280608&s=170667a&w=0&h=yxLk_ymR4bWfgAxi774CWiLAkIt2SZD315VFBiGmRzo=");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+</style>
+
+
+
+
+
+<body style="text-align:center; margin-top: 250px">
+    <div style="text-align: center">
+
+        <section style="">
+            @using (Html.BeginForm("ShowDetails", "StudentSection"))
+            {
+
+            <select name="BookCategory" id="Department" class="btn btn-primary" style="width:350px; height:40px;">
+                <option value="Computer">
+                    Computer
+                </option>
+
+                <option value="IT E">
+                    IT
+                </option>
+                <option value="Electrical">
+                    Electrical
+                </option>
+                <option value="Mechanical ">
+                    Mechanical
+                </option>
+                <option value="Others ">
+                    Others
+                </option>
+            </select>
+                <input class="btn btn-primary" style="width:100px; height:40px;" type="submit" value="show books" />
+
+            }
+
+           
+            
+        </section>
+
+        <div style="position:fixed;left:30px;bottom:40px;" class="text-white">
+            <input type="button" style="background-color:green; border-color:black; border-radius:20px; color:white;height:40px;width:70px; font-size:15px " onclick="location.href = '/Button/StudentTabs';" value="Back" /><br><br>
+
+        </div>
+    </div>
+    
+  
+</body>
+</html>

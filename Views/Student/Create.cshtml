@@ -1,0 +1,84 @@
+﻿@model LibraryManagement.Models.StudentDetails
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<style>
+    body {
+        background-image: url("https://media.istockphoto.com/photos/ivory-off-white-paper-texture-picture-id903280608?k=20&m=903280608&s=170667a&w=0&h=yxLk_ymR4bWfgAxi774CWiLAkIt2SZD315VFBiGmRzo=");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+</style>
+
+<h4>StudentDetails</h4>
+<hr />
+@if (TempData["AlertMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+        <strong>Success!!</strong> @TempData["AlertMessage"].ToString();
+
+    </div>
+}
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Student_Id" class="control-label"></label>
+                <input asp-for="Student_Id" class="form-control" />
+                <span asp-validation-for="Student_Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StudentName" class="control-label"></label>
+                <input asp-for="StudentName" class="form-control" />
+                <span asp-validation-for="StudentName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Department" class="control-label"></label><br>
+                <select required name="Department" id="Department" style="width:350px; height:40px;">
+                    <option value="Computer">
+                        Computer
+                    </option>
+
+                    <option value="IT">
+                        IT
+                    </option>
+                    <option value="Electrical">
+                        Electrical
+                    </option>
+                    <option value="Mechanical">
+                        Mechanical
+                    </option>
+
+                </select>
+                <span asp-validation-for="Department" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="EmailID" class="control-label"></label>
+                <input asp-for="EmailID" class="form-control" />
+                <span asp-validation-for="EmailID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

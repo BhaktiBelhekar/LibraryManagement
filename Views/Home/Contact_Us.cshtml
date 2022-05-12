@@ -1,0 +1,37 @@
+﻿@{ ViewData["Title"] = "Contact_Us"; }
+
+<style>
+    body {
+        background-image: url("https://media.istockphoto.com/photos/web-contact-us-icons-on-blue-background-contact-us-cutomer-support-picture-id1338907882?b=1&k=20&m=1338907882&s=170667a&w=0&h=p_43GQzYXk9GWkK-TiiNNPSnFgIOAF6B8k0BTKQgs7g=");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+</style>
+
+
+<h1 style="text-align: center ; margin:10px ">Contact Us</h1>
+
+<div style="font-family:'Times New Roman', Times, serif; font-size:large; margin:20px">
+
+    <h3>Need to get in touch with us?</h3>
+
+</div>
+<form>
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname" required><br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname" required><br>
+    <label for="mail">E-mail:</label><br>
+    <input type="email" id="mail" name="mail" required><br>
+
+    <label for="message">Message:</label><br>
+    <textarea id="message" style="font-size:10pt;height:100px;width:200px" required></textarea><br><br>
+    <input type="submit" id="submit" name="submit" formtarget="_blank" class="btn btn-outline-info" asp-area="" asp-controller="Home" asp-action="Contact_Us2">
+
+</form>
+<div style="float:right">
+    <a href="https://www.twitter.com/microsoft" target="_blank"><img src="https://cdn.iconscout.com/icon/free/png-64/twitter-241-721979.png"></a>
+    &nbsp; &nbsp; &nbsp; <a href="https://www.instagram.com" target="_blank"><img src="https://cdn.iconscout.com/icon/free/png-64/instagram-51-151095.png"></a>
+    &nbsp; &nbsp; &nbsp; <a href="https://www.gmail.com" target="_blank"><img src="https://cdn.iconscout.com/icon/free/png-64/gmail-30-722694.png"></a>
+</div>

@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "mssql2": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/librarymanagementfinaldbserver/databases/LibraryManagement_dbfinal",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:DefaultString",
+      "secretStore": "AzureAppSettings"
+    }
+  }
+}
